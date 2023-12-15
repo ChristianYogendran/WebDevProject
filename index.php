@@ -27,32 +27,8 @@
 
     // Execution on the DB server is delayed until we execute().
     $statement->execute();
-/*
-    public function getCategories()
-    {
-        $results = $this->db->select('msi_items_categories','status = 1 AND parent_id = NULL');
-        if( !is_array($results[0]) ) {
-            $new_results = array();
-            array_push($new_results, $results);
-            return $new_results;
-        } else {
-            return $results;
-        }
-    }
 
-    public function getSubCategories($parent)
-    {
-        $bind = [':parent' => $parent];
-        $results = $this->db->select('msi_items_categories','status = 1 AND parent_id = :parent');
-        if( !is_array($results[0]) ) {
-            $new_results = array();
-            array_push($new_results, $results);
-            return $new_results;
-        } else {
-            return $results;
-        }
-    }
-    */
+    
 ?>
 
 <!DOCTYPE html>
