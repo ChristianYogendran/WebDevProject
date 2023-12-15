@@ -6,7 +6,7 @@ require('connect.php');
 $error = NULL;
 
 // Build and prepare SQL String with :id placeholder parameter.
-$query = "SELECT * FROM review WHERE review_id = :id LIMIT 1";
+$query = "SELECT * , (SELECT image.filename FROM image WHERE image.review_id = review.review_id LIMIT 1) filename FROM review WHERE review_id = :id LIMIT 1";
 $statement = $db->prepare($query);
 
 // Sanitize $_GET['id'] to ensure it's a number.
@@ -80,7 +80,7 @@ $statement->execute();
                 <p class="blog-post-meta"><?= $row['datatime'] ?></p>
 
                 <p><?= $row['content'] ?></p>
-                <img src="images/gallery/<?php echo $result; ?>.jpg">
+                <img src="images/<?= $row["filename"]; ?>">
                 <a href="edit.php?id=<?= $row['review_id'] ?>">edit</a>
             </article>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
