@@ -1,0 +1,13 @@
+section{
+    padding: 16px;
+}
+
+form{
+    max-width: 600px;
+    padding: 50px;
+}
+
+textarea{
+    width: 600px;
+    height: 300px;
+}
